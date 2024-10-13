@@ -1,6 +1,6 @@
-const GITHUB_AUTH_TOKEN = "null"
-const BOT_NUMBER = "null"
-const SESSION_ID = ""
+const GITHUB_AUTH_TOKEN = ""
+const BOT_NUMBER = "94765476552"
+const SESSION_ID = "PRABATH-MD~xbcFBY5K#gOUbOfXdidzL2z3QrM7PKFvbELHkiptQ4OLVNaEUQoo"
 
 
 module.exports = {
