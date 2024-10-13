@@ -1,4 +1,4 @@
-name: MRFG CI
+name: Node.js CI
 
 on:
   push:
@@ -35,9 +35,11 @@ jobs:
     - name: Map MY_AUTH_TOKEN to GITHUB_AUTH_TOKEN
       run: echo "GITHUB_AUTH_TOKEN=${{ secrets.MY_AUTH_TOKEN }}" >> $GITHUB_ENV
 
+    - name: Create necessary directories
+      run: mkdir -p /home/runner/work/PRABATHMD/PRABATHMD/lib
+
     - name: Create config.txt
-      run: |
-        echo "your_configuration_data" > /home/runner/work/PRABATHMD/PRABATHMD/lib/config.txt
+      run: echo "your_configuration_data" > /home/runner/work/PRABATHMD/PRABATHMD/lib/config.txt
 
     - name: Cache Database
       uses: actions/cache@v3
@@ -50,5 +52,5 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: start
+    - name: Start application
       run: npm start
