@@ -1,4 +1,4 @@
-name: MRFG CLI
+name: MRFG CI
 
 on:
   push:
@@ -34,6 +34,18 @@ jobs:
 
     - name: Map MY_AUTH_TOKEN to GITHUB_AUTH_TOKEN
       run: echo "GITHUB_AUTH_TOKEN=${{ secrets.MY_AUTH_TOKEN }}" >> $GITHUB_ENV
+
+    - name: Create config.txt
+      run: |
+        echo "your_configuration_data" > /home/runner/work/PRABATHMD/PRABATHMD/lib/config.txt
+
+    - name: Cache Database
+      uses: actions/cache@v3
+      with:
+        path: /path/to/database
+        key: ${{ runner.os }}-database
+        restore-keys: |
+          ${{ runner.os }}-database
 
     - name: Install dependencies
       run: npm install
